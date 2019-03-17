@@ -19,30 +19,22 @@ var churchillSpeech = {
     },
     speechesArray = [churchillSpeech, ghandiSpeech, demosthenesSpeech],
     donatePrompt;
+//functions
+//get author and year
+	function getAuthorAndYearString(){
+		consoleDisplay.innerHTML = 'This Speech was written by ' + speaker.author + ' in ' + speaker.year + ".";
+	}
+
+
+
+
+
+	console.log(getAuthorAndYearString(speechesArray[1]));
+
 
 document.getElementById('BtnDonate').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Donate" button.
-  var donationDisplay = document.createElement('h3'),
-      donationText,
-      articleElements;
-
-  donatePrompt = window.prompt('How much would you like to donate?');
-
-  if(donatePrompt >= 100){
-    donationText = document.createTextNode('Thank you for your very generous donation!');
-    donationDisplay.setAttribute('style', 'color: #DB152C;');
-
-    articleElements = document.getElementsByTagName('article');
-    for(var i = 0; i < articleElements.length; i++){
-      articleElements[i].className = 'generous-donation';
-    }
-  }else{
-    donationText = document.createTextNode('Thank you for your donation of $' + donatePrompt);
-  }
-
-  donationDisplay.appendChild(donationText);
-  document.getElementById('SideNav').appendChild(donationDisplay);
-});
+ getAuthorAndYearString(speechesArray[0]);
 
 document.getElementById('BtnChurchill').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Churchill" button.
