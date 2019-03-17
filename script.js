@@ -19,7 +19,13 @@ var churchillSpeech = {
     },
     speechesArray = [churchillSpeech, ghandiSpeech, demosthenesSpeech],
     donatePrompt;
-
+	
+//Functions
+//Function 1 - Author and Year
+	function getAuthorAndYearString (i) {
+	  document.getElementById('ConsoleDisplay').innerHTML = 'This speech was written by ' + speechesArray[i].author + ' in ' + speechesArray[i].year + '.';
+	}
+//Function 2 - Author and Year
 document.getElementById('BtnDonate').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Donate" button.
   var donationDisplay = document.createElement('h3'),
@@ -46,42 +52,7 @@ document.getElementById('BtnDonate').addEventListener('click', function(){
 
 document.getElementById('BtnChurchill').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Churchill" button.
-  
-  function getAuthorAndYearString(){
-      var churchill = 'This speech was written by ' + speechesArray[0].author + ' in ' + speechesArray[0].year +".";
-      return churchill;
-    }
-	document.getElementById('ConsoleDisplay').innerHTML = getAuthorAndYearString(speechesArray);
-	function displayBCEString(){
-  if(speechesArray[0].yearIsBCE === true){
-	  return 'This speech took place during the common era.<br>';
-  }else{
-    return 'This speech took place during the common era.<br>';
-  }
-}
-document.getElementById('ConsoleDisplay').innerHTML += displayBCEString(speechesArray);
- 
-function getOldestOrYoungestStringfunction (){
-  var oldest = speechesArray[0].year,
-      newest = speechesArray[0].year;
-
-  for(var i = 0; i < speechesArray.length; i++){
-    if(speechesArray[i].year < oldest){
-      oldest = speechesArray[i].year;
-    }
-    if(speechesArray[i].year > newest){
-      newest = speechesArray[i].year;
-    }
-  }
-  if(speechesArray[0].year === oldest){
-    return 'This is the oldest speech on the page.<br>';
-  }
-  if(speechesArray[0].year === newest){
-    return'This is the most recent speech on the page.<br>';
-  }
-    else{
-    	return'This is neither the'
-    }
+getAuthorAndYearString(0)
 });
 
 document.getElementById('BtnGhandi').addEventListener('click', function(){
