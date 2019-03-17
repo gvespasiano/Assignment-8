@@ -29,12 +29,13 @@ var churchillSpeech = {
 	function displayBCEString (i){
     if(speechesArray[i].yearIsBCE === true){
       document.getElementById('ConsoleDisplay').innerHTML += ' This speech took place before the common era.<br>';
-    }else{
+    }
+	else{
       document.getElementById('ConsoleDisplay').innerHTML += ' This speech took place during the common era.<br>';
     }
 	}
 //Function 3 - Oldest and most recent speech
-	function getOldestOrYoungestString (){
+	function getOldestOrYoungestString (x){
     var oldest = speechesArray[0].year,
         newest = speechesArray[0].year;
 	for(var i = 0; i < speechesArray.length; i++){
@@ -45,15 +46,15 @@ var churchillSpeech = {
 	        newest = speechesArray[i].year;
 	      }
 	    }
-
-	    if(speechesArray.year === oldest){
+	    if(speechesArray[x].year === oldest){
 	      document.getElementById('ConsoleDisplay').innerHTML += 'This is the oldest speech on the page.<br>';
 	    }
-	    else if(speechesArray.year === newest){
+	    else if(speechesArray[x].year === newest){
 	      document.getElementById('ConsoleDisplay').innerHTML += 'This is the most recent speech on the page.<br>';
 	    }
 		else document.getElementById('ConsoleDisplay').innerHTML += 'This is neither the most recent nor the oldest speech on the page.<br>';
 	}
+
 document.getElementById('BtnDonate').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Donate" button.
   var donationDisplay = document.createElement('h3'),
@@ -89,7 +90,7 @@ document.getElementById('BtnGhandi').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Ghandi" button.
 	getAuthorAndYearString(1);
 	displayBCEString(1);
-	getOldestOrYoungestString(0);
+	getOldestOrYoungestString(1);
 });
 
 document.getElementById('BtnDemosthenes').addEventListener('click', function(){
